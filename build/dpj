@@ -1,0 +1,28 @@
+#!/bin/bash
+
+if [ "$1" = "" ] ; then
+  echo " usage: `basename $0` install|chown|mv_install"
+  exit 0
+fi
+
+if [ "$1" = "install" ] ; then
+  tar -C /application/  -xjvf /packages/dotproject-2.1.8.tar.bz2
+  tar -C /application/  -xjvf /packages/invoice_0.6.1.tar.bz2
+  tar -C /application/  -xjvf /packages/macroprojet-1.0.0.tar.bz2
+  tar -C /application/  -xjvf /packages/resource_m_v_1.0.tar.bz2
+  tar -C /application/  -xjvf /packages/de_DE-20060425.tar.bz2
+  mkdir -p /application/inaccessible
+  chown -Rf www-data:www-data /application/
+  exit 0
+fi
+if [ "$1" = "chown" ] ; then
+  chown -Rf www-data:www-data /application/
+fi
+
+if [ "$1" = "mv_install" ] ; then
+  mkdir -p /application/inaccessible
+  mv /application/install /application/inaccessible/
+  echo "directoty <install> moved to <inaccessible/install>"
+  exit 0
+fi
+
