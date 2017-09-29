@@ -12,12 +12,13 @@
 
 ### build image and start a container
 ```
-git clone ...
-cd ...
+git clone https://github.com/unimock/dotproject-docker.git ./dpj
+cd ./dpj
 cp docker-compose.yml-template docker-compose.yml
 vi docker-compose.yml
 docker-compose build
 docker-compose up -d
+docker-compose logs
 docker exec -it dpj dpj install   # Install dotproject
 ```
 
@@ -27,7 +28,7 @@ docker exec -it dpj dpj install   # Install dotproject
 * Database User Name:     dotproject
 * Database User Password: dotproject
 
-### removed your install directory
+### move your install directory to a secure place
 ```
 docker exec -it dpj dpj mv_install
 ```
