@@ -16,7 +16,7 @@ git clone https://github.com/unimock/dotproject-docker.git ./dpj
 cd ./dpj
 cp docker-compose.yml-template docker-compose.yml
 vi docker-compose.yml
-docker-compose build
+#docker-compose build
 docker-compose up -d
 docker-compose logs
 docker exec -it dpj dpj install   # Install dotproject

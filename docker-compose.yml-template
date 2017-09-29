@@ -22,7 +22,7 @@ services:
     ports:
      - "888:80"
   php-fpm:
-    build: ./build
+    #build: ./build
     image: unimock/dotproject:2.8.0.0
     container_name: dpj
     volumes:
