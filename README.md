@@ -1,6 +1,5 @@
 # Dotproject in Docker
 
-
 ## content:
 * dotproject-2.1.8
 * de_DE-20060425 
