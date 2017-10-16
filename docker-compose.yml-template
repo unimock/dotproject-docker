@@ -15,6 +15,7 @@ services:
       - ./persistent/mysql:/var/lib/mysql
   nginx:
     image: nginx:1-alpine
+    restart: unless-stopped
     working_dir: /application
     volumes:
         - ./persistent/html:/application
@@ -25,6 +26,7 @@ services:
     #build: ./build
     image: unimock/dotproject-docker:2.8.0-0
     container_name: dpj
+    restart: unless-stopped 
     volumes:
       - ./persistent/html:/application
       - ./php-ini-overrides.ini:/etc/php5/fpm/conf.d/99-overrides.ini
