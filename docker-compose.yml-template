@@ -17,16 +17,22 @@ services:
     image: nginx:1-alpine
     restart: unless-stopped
     working_dir: /application
-    volumes:
-        - ./persistent/html:/application
-        - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    links:
+      - php-fpm
+    volumes_from:
+      - php-fpm
+    #volumes:
+    #    - ./persistent/html:/application
+    #    - ./nginx.conf:/etc/nginx/conf.d/default.conf
     ports:
      - "888:80"
   php-fpm:
     #build: ./build
-    image: unimock/dotproject-docker:2.8.0-0
+    image: unimock/dotproject-docker:2.8.0-1
     container_name: dpj
-    restart: unless-stopped 
+    restart: unless-stopped
+    links:
+      - mysql
     volumes:
       - ./persistent/html:/application
-      - ./php-ini-overrides.ini:/etc/php5/fpm/conf.d/99-overrides.ini
+      #- ./php-ini-overrides.ini:/etc/php5/fpm/conf.d/99-overrides.ini

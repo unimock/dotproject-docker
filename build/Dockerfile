@@ -10,4 +10,11 @@ COPY packages /packages
 COPY dpj /usr/local/bin
 RUN chmod a+x /usr/local/bin/dpj
 
+COPY php-ini-overrides.ini /etc/php5/fpm/conf.d/99-overrides.ini
+RUN mkdir -p /etc/nginx/conf.d
+COPY nginx.conf /etc/nginx/conf.d
+VOLUME /etc/nginx/conf.d
+
+
 WORKDIR "/application"
+VOLUME /application
