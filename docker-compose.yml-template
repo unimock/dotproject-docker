@@ -27,8 +27,20 @@ services:
     ports:
      - "888:80"
   php-fpm:
-    #build: ./build
-    image: unimock/dotproject-docker:2.8.0-1
+    ##################################################
+    # BUILD section
+    ##################################################
+    build:
+      context: ./build
+      dockerfile: Dockerfile
+      x-bake:
+        platforms:
+          - linux/amd64
+          - linux/arm64
+    ##################################################
+    # RUN section
+    ##################################################
+    image: unimock/dotproject-docker:2.8.0-2
     container_name: dpj
     restart: unless-stopped
     links:
