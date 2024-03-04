@@ -40,7 +40,7 @@ services:
     ##################################################
     # RUN section
     ##################################################
-    image: unimock/dotproject-docker:2.8.0-2
+    image: unimock/dotproject-docker:2.8.0-3
     container_name: dpj
     restart: unless-stopped
     links:

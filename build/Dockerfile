@@ -1,4 +1,4 @@
-FROM unimock/php5-fpm:0.0.0
+FROM unimock/php5-fpm:0.0.1
 
     #&& apt-get -y --no-install-recommends install php5-ldap  php5-memcached php5-mysql php5-adodb php5-gd php5-memcache \
 # Install selected extensions and other stuff
